@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { ProductManager  } from '../src/config/ProductManager';
+import { ProductManager  } from '../src/config/ProductManager.js';
 
 const productManager = new ProductManager('./src/data/products.json')
 const productsRouter = Router()
@@ -24,7 +24,7 @@ productsRouter.get('/products', async (req, res) => {
     }
 })
 
-app.get('/products/:idProd', async (req, res) => {
+productsRouter.get('/products/:idProd', async (req, res) => {
     try {
         const idProducto = req.params.idProd
         const prod = await productManager.getProductsById(idProducto)
@@ -64,7 +64,7 @@ productsRouter.put('/products/:idProd', async (req, res) => {
     }
 })
 
-app.delete('/products/:idProd', async (req, res) => {
+productsRouter.delete('/products/:idProd', async (req, res) => {
     try {
         const idProducto = req.params.idProd
         const mensaje = await productManager.deleteProduct(idProducto)

@@ -1,6 +1,6 @@
 import express from 'express';
 import cartRouter from '../routes/cartRouter.js';
-import productsRouter from './routes/productsRouter.js'
+import productsRouter from '../routes/ProductsRouter.js'
 import upload from './config/multer.js'
 import { __dirname } from './path.js'
 
