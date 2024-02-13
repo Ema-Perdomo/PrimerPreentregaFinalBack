@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import { CartManager } from '../src/config/CartManager.js';
-import crypto from 'crypto';
 
 
 const cartManager = new cartManager('./src/data/cart.json')
@@ -26,11 +25,11 @@ cartRouter.get('/', async (req, res) => {
         res.status(200).send(cart)
 
     } catch (error) {
-        res.status(500).send(`error interno del servidor al consultar carrito: ${error}`)
+        res.status(500).send(`Error interno del servidor al consultar carrito: ${error}`)
     }
 })
 
-cartRouter.post('/_id', async (req, res) => {
+cartRouter.post('/pid', async (req, res) => {
 
     try {
         const productId = req.params.pid

@@ -4,11 +4,7 @@ export class CartManager {
     constructor(path) {
         this.products = path
     }
-
-    async createCart() {
-
-    }
-
+    
     async getCart() {
         const cart = JSON.parse(await fs.readFile(this.products, 'utf-8'))
         return cart
